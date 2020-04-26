@@ -1,0 +1,15 @@
+{
+  "clearInfo": {
+    "clearUrl": "api/clear.json"
+  },
+  "homeInfo": {
+    "title": "首页",
+    "icon": "fa fa-home",
+    "href": "page/welcome.html?t=1"
+  },
+  "logoInfo": {
+    "title": "紫兰轩",
+    "image": "images/logo.png",
+    "href": ""
+  }
+ }

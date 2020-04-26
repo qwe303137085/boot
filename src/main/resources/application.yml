@@ -1,0 +1,80 @@
+spring:
+  http:
+    #编码
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  
+  #数据源  
+  datasource:
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-test-query: SELECT 1
+    #验证连接的有效性
+    test-while-idle: true
+    #获取连接时候验证，会影响性能
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM DUAL
+    #空闲连接回收的时间间隔，与test-while-idle一起使用，设置5分钟
+    time-between-eviction-runs-millis: 300000
+    #连接池空闲连接的有效时间 ，设置30分钟
+    min-evictable-idle-time-millis: 1800000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0,1:3306/layui?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+ 
+  #redis配置
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    timeout: 6000
+    pool:
+      max-active: 1000
+      max-wait: -1
+      max-idle: 10
+      min-idle: 5
+      
+  cache:
+    type: redis
+    cache-names: zilanxuan
+    
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.zilanxuan.modules.system.entity
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  TypeAliasesPackage: cn.zilanxuan.modules.system.entity
+  global-config:
+    id-type: 0
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+    #meta-object-handler: cn.zilanxuan.config.SysMetaObjectHandler
+    configuration:
+      map-underscope-to-camel-case: true
+      cache-enabled: false
+
+logging:
+  config: classpath:log/logback.xml
+  path: /var/tmp/boot 
+
+zilanxuan:
+  allowedOrigins: http://localhost:80
+   
+#开发环境配置
+server:
+  port: 8303
+  tomcat:
+    uri-encoding: UTF-8
+
+
+  
+
+
+    
